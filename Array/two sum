@@ -1,1 +1,14 @@
-The link is: https://leetcode.com/problems/two-sum/.
+The link is https://leetcode.com/problems/two-sum/.
+
+
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        if len(nums) <= 1:
+            return []
+        mp = {}
+        for i in range(len(nums)):
+            if nums[i] not in mp:
+                mp[target - nums[i]] = i
+            else:
+                return [mp[nums[i]], i]
