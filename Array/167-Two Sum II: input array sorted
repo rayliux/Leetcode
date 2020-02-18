@@ -1,5 +1,6 @@
 The link is https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/.
-
+Given that the array is already sorted, the case is simple. Use two pointers, one pass.
+Time complexity is O(n), space complexity is O(1).
 
 
 
@@ -20,3 +21,36 @@ public:
         return res;
     }
 };
+
+
+
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int i = 0, j = numbers.length - 1;
+        int[] res = new int[2];
+        while (i <= j) {
+            if (numbers[i] + numbers[j] == target) {
+                res[0] = i + 1;
+                res[1] = j + 1;
+                return res;
+            }
+            else if (numbers[i] + numbers[j] < target) ++i;
+            else --j;
+        }
+        return res;
+    }
+}
+
+
+
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        i, j = 0, len(numbers) - 1
+        while i <= j:
+            if numbers[i] + numbers[j] == target:
+                return [i + 1, j + 1]
+            elif numbers[i] + numbers[j] < target:
+                i += 1
+            else:
+                j -= 1
+        return []
