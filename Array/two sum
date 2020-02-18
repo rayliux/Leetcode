@@ -1,5 +1,5 @@
 The link is https://leetcode.com/problems/two-sum/.
-Time complexity is O(n), space complexity is O(nlogn).
+Time complexity is O(n), space complexity is O(nlogn). O(n) space time if you use unordered_map.
 
 
 
