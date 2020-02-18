@@ -1,4 +1,5 @@
 The link is https://leetcode.com/problems/two-sum/.
+Key idea is to record every element's value and its index in a map(space for time), so we can deal with them one by one(one-pass).
 Time complexity is O(n), space complexity is O(nlogn). O(n) space time if you use unordered_map.
 
 
