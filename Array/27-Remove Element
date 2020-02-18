@@ -1,0 +1,71 @@
+The link is https://leetcode.com/problems/remove-element.
+Time complexity is O(n) using two pointers, space complexity is O(1) as required.
+
+
+// My first attempt, which is very ugly and slow. You don't have to do so many comparisons using two pointers.
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int i = 0, j = nums.size() - 1;
+        while (i <= j) {
+            while (i <= j && nums[i] != val) ++i;
+            while (i <= j && nums[j] == val) --j;
+            if (i <= j) swap(nums[i], nums[j]);
+        }
+        return j + 1;
+    }
+};
+
+
+
+// This is fast-and-slow two-pointer technique.
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int j = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] != val) nums[j++] = nums[i];
+        }
+        return j;
+    }
+};
+
+
+// if the number of val is small, you can use two pointers from two ends.
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int i = 0, j = nums.size() - 1;
+        while (i <= j) {
+            if (nums[i] == val) {
+                nums[i] = nums[j--];
+            }
+            else ++i;
+        }
+        return j + 1;
+    }
+};
+
+
+
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int j = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] != val) nums[j++] = nums[i]; 
+        }
+        return j;
+    }
+}
+
+
+
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        start, end = 0, len(nums) - 1
+        while start <= end:
+            if nums[start] == val:
+                nums[start], nums[end], end = nums[end], nums[start], end - 1
+            else:
+                start += 1
+        return end + 1
