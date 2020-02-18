@@ -1,6 +1,6 @@
 The link is https://leetcode.com/problems/two-sum/.
 Key idea is to record every element's value and its index in a map(space for time), so we can deal with them one by one(one-pass).
-Time complexity is O(n), space complexity is O(nlogn). O(n) space time if you use unordered_map.
+Time complexity is O(n), space complexity is O(nlogn). O(n) space time if you use hash or unordered_map.
 
 
 
@@ -23,6 +23,27 @@ public:
         return res;
     }
 };
+
+
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        if (nums.length <= 1) return nums;
+        Map<Integer, Integer> mp = new HashMap<Integer, Integer>();
+        int[] res = new int[2];
+        for (int i = 0; i < nums.length; ++i) {
+            if (mp.containsKey(target - nums[i])) {
+                res[0] = mp.get(target - nums[i]);
+                res[1] = i;
+                return res;
+            }
+            else {
+                mp.put(nums[i], i);
+            }
+        }
+        return res;
+    }
+}
 
 
 
