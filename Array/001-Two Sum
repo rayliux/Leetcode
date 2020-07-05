@@ -57,3 +57,17 @@ class Solution:
                 mp[target - nums[i]] = i
             else:
                 return [mp[nums[i]], i]
+                
+class Solution {
+    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+        var mp = [Int: Int]()
+        for (i, n) in nums.enumerated() {
+            if let k = mp[target - n] {
+                return [k, i]
+            }
+            mp[n] = i
+        }
+        fatalError("no")
+        // return [Int]()
+    }
+}                
